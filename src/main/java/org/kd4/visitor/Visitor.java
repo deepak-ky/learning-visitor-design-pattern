@@ -6,8 +6,8 @@ import org.kd4.client.Resident;
 import org.kd4.client.Restaurant;
 
 public interface Visitor {
-  void visitResident(Resident resident);
-  void visitCompany(Company company);
-  void visitBank(Bank bank);
-  void visitRestaurant(Restaurant restaurant);
+  void visit(Resident resident);
+  void visit(Company company);
+  void visit(Bank bank);
+  void visit(Restaurant restaurant);
 }

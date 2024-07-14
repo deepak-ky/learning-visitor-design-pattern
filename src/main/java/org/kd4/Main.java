@@ -9,6 +9,7 @@ import org.kd4.client.Company;
 import org.kd4.client.Resident;
 import org.kd4.client.Restaurant;
 import org.kd4.visitor.InsuranceEmailingVisitor;
+import org.kd4.visitor.ReportGenerationVisitor;
 
 public class Main {
 
@@ -49,6 +50,14 @@ public class Main {
 
     for (Client client : clientList) {
       client.accept(insuranceEmailingVisitor);
+    }
+
+    System.out.println(
+        "-----------------------------------------------------------------------------------------");
+
+    ReportGenerationVisitor reportGenerationVisitor = new ReportGenerationVisitor();
+    for(Client client : clientList) {
+      client.accept(reportGenerationVisitor);
     }
 
   }

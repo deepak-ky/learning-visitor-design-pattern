@@ -12,7 +12,7 @@ public class Bank extends Client{
 
   @Override
   public void accept(Visitor visitor) {
-    visitor.visitBank(this);
+    visitor.visit(this);
   }
 
   @Override

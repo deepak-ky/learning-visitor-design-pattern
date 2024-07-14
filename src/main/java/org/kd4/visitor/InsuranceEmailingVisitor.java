@@ -9,23 +9,32 @@ import org.kd4.client.Restaurant;
 
 public class InsuranceEmailingVisitor implements Visitor{
 
+
+  // Need for double dispatch, method overloading cannot solve this
+  public void sendInsuranceMails(List<Client> clients){
+    for(Client client : clients) {
+      //  visit(client); // exact subClass of a Client object, cannot be known in advance and hence the overloading mechanism
+      // won't be able to determine the correct method to execute.
+    }
+  }
+
   @Override
-  public void visitResident(Resident resident) {
+  public void visit(Resident resident) {
       System.out.println("Resident Mail : Please consider out medical Insurance insurance plans .... ");
   }
 
   @Override
-  public void visitCompany(Company company) {
+  public void visit(Company company) {
     System.out.println("Company Mail : Sending details about new employee flex bean plan....");
   }
 
   @Override
-  public void visitBank(Bank bank) {
+  public void visit(Bank bank) {
     System.out.println("Bank Mail : Sending available plans for theft Insurance ....");
   }
 
   @Override
-  public void visitRestaurant(Restaurant restaurant) {
+  public void visit(Restaurant restaurant) {
     System.out.println("Restaurant Mail : Here are the fire and food insurance plans....");
   }
 }

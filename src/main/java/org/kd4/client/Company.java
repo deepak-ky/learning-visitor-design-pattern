@@ -12,7 +12,7 @@ public class Company extends Client{
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visitCompany(this);
+        visitor.visit(this);
     }
 
     @Override
