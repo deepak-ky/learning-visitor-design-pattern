@@ -27,22 +27,28 @@ public class Main {
     InsuranceEmailingVisitor insuranceEmailingVisitor = new InsuranceEmailingVisitor();
 
     /*
+    // NEED FOR DOUBLE DISPATCH
+
+    for (Client client : clientList) {
+      insuranceEmailingVisitor.visit(client);
+      // exact subClass of a Client object, cannot be known in advance and hence the overloading mechanism
+      // won't be able to determine the correct method to execute.
+    }
+
     // If there was no accept method in the Client Class, then we would have to figure the subClass of every client,
     // and then execute the corresponding function
 
-    for (Client client : clientList){
-      if(client instanceof Resident){
-        insuranceEmailingVisitor.visitResident((Resident) client);
+     for (Client client : clientList) {
+      if (client instanceof Resident) {
+        insuranceEmailingVisitor.visit((Resident) client);
+      } else if (client instanceof Company) {
+        insuranceEmailingVisitor.visit((Company) client);
+      } else if (client instanceof Bank) {
+        insuranceEmailingVisitor.visit((Bank) client);
+      } else if (client instanceof Restaurant) {
+        insuranceEmailingVisitor.visit((Restaurant) client);
       }
-      else if(client instanceof Company){
-        insuranceEmailingVisitor.visitCompany((Company) client);
-      }
-      else if(client instanceof Bank){
-        insuranceEmailingVisitor.visitBank((Bank) client);
-      }
-      else if(client instanceof Restaurant){
-        insuranceEmailingVisitor.visitRestaurant((Restaurant) client);
-      }
+    }
     }*/
 
     System.out.println(
